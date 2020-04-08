@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash launcher</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="modal-header">
+        <div>
+            <a href="https://crash.co" target="_blank">
+                <img src="images/logo.png" alt="crash logo" class="logo-icon"> 
+            </a>
+        </div>
+    </div>
+
+    <div class="modal-content">
+
+        <div class="company">
+            <label for="company-name">Company name</label>
+            <input class="input" type="text" name="company-name" id="company-name" placeholder="Apple">
+    
+            <label for="company-domain">Domain</label>
+            <input class="input" type="text" name="company-domain" id="company-domain" placeholder="apple.com">
+        </div>
+        
+        <div class="role">
+            <label for="job-title">Job title</label>
+            <input class="input" type="text" name="job-title" id="job-title" placeholder="Junior Marketer">
+        </div>
+        
+        <div class="hm">
+            <label for="hiring-manager">Hiring manager</label>
+            <input class="input" type="text" name="hiring-manager" id="hiring-manager" placeholder="Steve Jobs">
+        </div>
+
+        <div>
+            <a href="https://crash.co/pitches/new" id="pitch-button" target="_blank" rel="noopener noreferrer">Pitch it!</a>
+        </div>
+        
+    </div>
+
+    <script type="module" src="./popup.js"></script>
+
+</body>
+</html>

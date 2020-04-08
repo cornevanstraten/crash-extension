@@ -1,0 +1,121 @@
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 10px;
+    min-height: 470px;
+    padding: 0;
+    width: 384px;
+}
+
+a:link, a:visited {
+    color: #000;
+    outline: 0;
+    text-decoration: none;
+}
+
+img {
+    height: 30px;
+    padding: 10px 20px;
+}
+
+.modal-header {
+    align-items: center;
+    /* border-bottom: 0.5px solid #dadada; */
+}
+
+.modal-content {
+    padding: 0 22px;
+    margin: 10px;
+}
+
+.modal-icons {
+    border-top: 0.5px solid #dadada;
+    height: 20px;
+    width: 100%;
+}
+
+.logo {
+    padding: 16px;
+}
+
+.logo-icon {
+    vertical-align: text-bottom;
+    margin-right: 12px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 22px;
+}
+
+.flex {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    width: 12px
+}
+
+.flex:hover {
+    opacity: 0.4
+}
+
+.flex .fa {
+    font-size: 20px;
+    color: #5861C4;
+}
+
+label {
+    font-family: 'Arial';
+    font-weight: bold;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 14px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  color: #5175ED;
+  background-color: #F6F7FA;
+  padding: 14px 40px;
+  margin: 6px 0;
+  border: 2px solid #E5E8EF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+    background-color: #eee;
+}
+
+#pitch-button {
+  display: block;
+  width: 88%;
+  text-align: center;
+  background-color: #5175ED;
+  color: white;
+  padding: 14px 20px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#pitch-button:hover {
+  background-color: #5175FF;
+}
+
+div {
+  border-radius: 5px;
+  /* background-color: #f2f2f2; */
+  padding: 0px;
+}
