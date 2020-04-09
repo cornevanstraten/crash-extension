@@ -1,35 +1,42 @@
 let currentURL = "about:blank";
+let redirectURL = "https://crash.co/pitches/new";
 
-class Pitch {
-  constructor() {
-    (this.companyName = document.getElementById("company-name").value),
-      (this.companyDomain = document.getElementById("company-domain").value),
-      (this.jobTitle = document.getElementById("job-title").value),
-      (this.postingURL = currentURL),
-      (this.hiringManagerName = document.getElementById(
-        "hiring-manager"
-      ).value);
-  }
-  createURL() {
-    let pitchJSON = JSON.stringify(this);
-    this.pitchURL =
-      "https://crash.co/pitches/new?variables=" + encodeURI(pitchJSON);
-  }
+function returnPitchJSON() {
+  let pitchObj = {
+    companyName: document.getElementById("company-name").value,
+    companyDomain: document.getElementById("company-domain").value,
+    jobTitle: document.getElementById("job-title").value,
+    postingURL: currentURL,
+    hiringManagerName: document.getElementById("hiring-manager").value,
+  };
+  return JSON.stringify(pitchObj);
 }
 
-document.querySelectorAll(".input").forEach((item) => {
-  item.addEventListener("change", updateButton);
-});
+function createURL(pitchJSON) {
+  return `https://crash.co/pitches/new?variables=${encodeURI(pitchJSON)}`;
+}
 
-function updateButton() {
+document
+  .getElementById("pitch-button")
+  .addEventListener("click", createPitchURLAndRedirect);
+
+function createPitchURLAndRedirect() {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { txt: "req URL" }, function (
       response
     ) {
       currentURL = response.url;
-      let newPitch = new Pitch();
-      newPitch.createURL();
-      document.getElementById("pitch-button").href = newPitch.pitchURL;
+      redirect();
+    });
+  });
+}
+
+function redirect() {
+  redirectURL = createURL(returnPitchJSON());
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      txt: "redirect",
+      redirect: redirectURL,
     });
   });
 }
