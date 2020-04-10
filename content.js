@@ -5,9 +5,9 @@ let jobData = false;
 
 if (
   currentURL.indexOf("angel.co/company/") !== -1 &&
-  currentURL.indexOf("/jobs/") !== -1
+  currentURL.indexOf("/jobs/") !== -1 &&
+  currentURL.length < 100
 ) {
-  console.log(currentURL);
   scrapeAngelData();
 }
 
