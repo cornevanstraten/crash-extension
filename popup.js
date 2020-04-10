@@ -20,19 +20,39 @@ document
   .getElementById("pitch-button")
   .addEventListener("click", createPitchURLAndRedirect);
 
+function requestjobData() {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, { txt: "req jobData" }, function (
+      response
+    ) {
+      if (response.jobData) {
+        document.getElementById("company-name").value =
+          response.jobData.companyName;
+        document.getElementById("company-domain").value =
+          response.jobData.companyDomain;
+        document.getElementById("job-title").value = response.jobData.jobTitle;
+        document.getElementById("hiring-manager").value =
+          response.jobData.hiringManager;
+      }
+    });
+  });
+}
+
+requestjobData();
+
 function createPitchURLAndRedirect() {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { txt: "req URL" }, function (
       response
     ) {
       currentURL = response.url;
+      redirectURL = createURL(returnPitchJSON());
       redirect();
     });
   });
 }
 
 function redirect() {
-  redirectURL = createURL(returnPitchJSON());
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       txt: "redirect",
@@ -40,3 +60,6 @@ function redirect() {
     });
   });
 }
+
+//on open: request txt: "req job data"
+//createURL(jobDataJSON)
