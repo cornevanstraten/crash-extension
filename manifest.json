@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Crash pitch tool",
-  "description": "Beta",
+  "name": "Crash pitch tool (beta)",
+  "description": "Pitch any job you find on the web using Crash.co",
   "version": "0.1.0",
   "icons": { "128": "icon.png" },
   "browser_action": {
