@@ -60,6 +60,3 @@ function redirect() {
     });
   });
 }
-
-//on open: request txt: "req job data"
-//createURL(jobDataJSON)
